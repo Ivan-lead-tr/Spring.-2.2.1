@@ -35,4 +35,10 @@ public class UserDaoImp implements UserDao {
                 .setParameter("series", series)
                 .uniqueResult();
     }
+
+    @Override
+    public void update(User user) {
+        sessionFactory.getCurrentSession().merge(user);
+
+    }
 }
